@@ -169,3 +169,28 @@ Requested fixes addressed:
 Files updated in iteration 2:
 - `websites/D/DMM TV/presence.ts`
 - `websites/D/DMM TV/metadata.json`
+
+## 11. Additional Live Verification Phase
+
+Phase selection result:
+- `追加実機検証（推奨）`
+
+Verification performed in this phase:
+- `get_errors` on changed files: no errors
+- HTTP reachability check for `https://tv.dmm.com/vod/`: `HTTP/2 200`
+
+Operational note:
+- A direct ESLint rerun for this phase was skipped by user interaction in the tool prompt.
+
+Manual verification checklist (real playback page):
+1. Top line (`details`) shows anime/series title.
+2. Bottom line (`state`) shows episode subtitle.
+3. Opaque alphanumeric text does not appear in `state`.
+4. Elapsed activity timer does not reset on pause/resume.
+5. Progress slide alternates with episode slide and shows `current / total [bar]`.
+6. `coverMode = Episode Cover` prioritizes episode artwork.
+7. `coverMode = Series Thumbnail` prioritizes series thumbnail.
+
+Current status:
+- Local static validation is clean.
+- Final page-level acceptance depends on logged-in playback verification in browser.
